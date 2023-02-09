@@ -1,6 +1,6 @@
 const express = require("express");
 const sqlite3 = require('better-sqlite3')
-const db = sqlite3('user.db', {verbose:console.log})
+const db = sqlite3('team.db', {verbose:console.log})
 const path = require("path")
 
 const app = express()
