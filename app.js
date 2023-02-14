@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, "/public")))
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-    secret: "Keep it secret",
+    secret: "safe secret",
     resave: false,
     saveUninitialized: false
 }));
