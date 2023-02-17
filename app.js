@@ -1,8 +1,9 @@
 const express = require("express");
 const sqlite3 = require('better-sqlite3')
-const db = sqlite3('coockie-clicker.db', {verbose:console.log})
+const db = sqlite3('user.db', {verbose:console.log})
 const path = require("path")
-const session = require('express-session')
+const session = require('express-session');
+
 
 const app = express()
 
@@ -17,7 +18,7 @@ app.use(session({
 
 
 app.post("/addUser", (request, response) => {
-    const sql = db.prepare('INSERT INTO User (username,password,points  ) VALUES (?,?,?)')
+    const sql = db.prepare('INSERT INTO user (username,password,points  ) VALUES (?,?,?)')
     
     const info = sql.run(request.body.username, request.body.password, request.body.points)
     console.log("Amount changes done: " + info.changes)
@@ -43,8 +44,11 @@ app.post("/login", (request, response) => {
     
 })
 
+app.post("/predict", (request,response) => {
 
-
+console.log(request.body)
+    
+})
 
 
 
